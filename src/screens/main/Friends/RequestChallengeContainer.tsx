@@ -15,10 +15,9 @@ import { images } from "../../../assets";
 import CustomText from "../../../components/CustomText";
 import { fonts } from "../../../utils/fonts";
 import { colors } from "../../../utils/colors";
-import * as Device from 'expo-device';
+import { isiPad } from "../../../utils/CommonFun";
 
 const RequestChallengeContainer = ({ navigation, item }: any) => {
-  const isiPad = "iPad";
 
   return (
     <View

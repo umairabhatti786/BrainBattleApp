@@ -19,10 +19,9 @@ import CustomText from "./CustomText";
 import { fonts } from "../utils/fonts";
 import * as Device from 'expo-device';
 import { colors } from "../utils/colors";
+import { isiPad } from "../utils/CommonFun";
 
 const GradientLayout = ({ children, color }: any) => {
-  const isiPad ="iPads";
-
   return (
     <LinearGradient
       colors={[color || "#ECF6FF", color || "#FFFFFF"]}

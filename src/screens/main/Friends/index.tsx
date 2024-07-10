@@ -19,10 +19,11 @@ import RequestChallengeContainer from "./RequestChallengeContainer";
 import CustomSearch from "../../../components/CustomSearch";
 import FindFriendsContainer from "./FindFriendsContainer";
 import { FindFriends, groupParties, onlineFriends } from "../../../utils/Data";
+import { isiPad } from "../../../utils/CommonFun";
 
 const Friends = ({ navigation }: any) => {
-  const isiPad = "iPad";
   const [selectedTab, setSelected] = useState("All");
+
 
   const renderFindFriendsList = ({ item, index }: any) => {
     return (
@@ -71,8 +72,8 @@ const Friends = ({ navigation }: any) => {
             }
           >
             <CustomText
-              fontFam={fonts.medium}
-              fontWeight="600"
+              fontFam={"ClashDisplay-Light.ttf"}
+              // fontWeight="600"
               label="All"
               size={16}
               color={selectedTab == "All" ? colors.white : colors.black}

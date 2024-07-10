@@ -16,12 +16,11 @@ import CustomText from "../../../components/CustomText";
 import { fonts } from "../../../utils/fonts";
 import { colors } from "../../../utils/colors";
 import * as Device from 'expo-device';
-import { ShadowedView } from 'react-native-fast-shadow';
 import { Shadow } from 'react-native-shadow-2';
+import { isiPad } from "../../../utils/CommonFun";
 
 
 const FindFriendsContainer = ({ navigation, item }: any) => {
-  const isiPad = "iPad";
 
   return (
     <View
@@ -58,7 +57,7 @@ const FindFriendsContainer = ({ navigation, item }: any) => {
             />
           </View>
           {item.monsterBadge && (
-            <Shadow distance={15} startColor={'#530182'} endColor={'#530182'} offset={[3, 4]}>
+            // <Shadow distance={15} startColor={'#530182'} endColor={'#530182'} offset={[3, 4]}>
 
 <Image
               style={{
@@ -73,7 +72,7 @@ const FindFriendsContainer = ({ navigation, item }: any) => {
               resizeMode="contain"
               source={item.monsterBadge}
             />
-</Shadow>
+// </Shadow>
            
                 
             // <View

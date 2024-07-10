@@ -1,6 +1,7 @@
 export const images = {
   faceEmoji: require("../assets/icons/face-emoji.png"),
   play: require("../assets/icons/play.png"),
+  back: require("../assets/icons/back.png"),
   reward: require("../assets/icons/reward.png"),
   brain: require("../assets/icons/brain.png"),
   leaderboard: require("../assets/icons/leaderboard.png"),

@@ -25,7 +25,7 @@ const CustomText = ({ color, size, fontFam, text, style, lineHeight,numberOfLine
                     color: color || colors.black,
                     fontSize: moderateScale( size||12),
                     fontWeight: fontWeight ||"500",
-                    fontFamily: fontFam||fonts.regular ,
+                    fontFamily: fontFam||"ClashDisplay-Regular.ttf" ,
                     textDecorationLine:textDecorationLine,
                 
                     

@@ -21,9 +21,9 @@ import { images } from "../../assets";
 import { fonts } from "../../utils/fonts";
 import CustomText from "../../components/CustomText";
 import * as Device from 'expo-device';
+import { isiPad } from "../../utils/CommonFun";
 
 const Tab = createBottomTabNavigator();
-const isiPad ="iPad";
 
 function BottomTab() {
   return (
