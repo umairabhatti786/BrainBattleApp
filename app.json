@@ -5,6 +5,20 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+
+    "assetBundlePatterns": [
+      "assets/fonts/ClashDisplay-Bold.ttf",
+      "assets/fonts/ClashDisplay-Light.ttf",
+      "assets/fonts/ClashDisplay-Medium.ttf",
+      "assets/fonts/ClashDisplay-Regular.ttf",
+      "assets/fonts/ClashDisplay-Semibold.ttf",
+      "assets/fonts/Roboto-Bold.ttf",
+      "assets/fonts/Roboto-Medium.ttf",
+      "assets/fonts/Roboto-Regular.ttf"
+
+
+    ],
+    
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",

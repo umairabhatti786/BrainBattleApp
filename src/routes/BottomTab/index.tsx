@@ -84,7 +84,7 @@ function BottomTab() {
               <CustomText
                 fontFam={fonts.medium}
                 fontWeight="600"
-                label="Home"
+                label="Play"
                 size={11}
                 color={colors.gray}
               />
@@ -106,7 +106,7 @@ function BottomTab() {
               <CustomText
                 fontFam={fonts.medium}
                 fontWeight="600"
-                label="Home"
+                label="Rewards"
                 size={11}
                 color={colors.gray}
               />

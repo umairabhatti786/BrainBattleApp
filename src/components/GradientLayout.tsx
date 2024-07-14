@@ -81,7 +81,7 @@ const GradientLayout = ({ children, color }: any) => {
             marginRight: horizontalScale(30),
             gap: horizontalScale(12),
             ...appStyles.row,
-            marginTop:  isiPad? verticalScale(20):Platform.OS=="ios"?verticalScale(60):verticalScale(10),
+            marginTop:  isiPad? verticalScale(20):Platform.OS=="ios"?verticalScale(60):verticalScale(40),
           }}
         >
           <View
@@ -156,7 +156,7 @@ export default GradientLayout;
 const styles = StyleSheet.create({
   innerTextContainer: {
     gap: 10,
-    marginTop: Platform.OS == "ios"?verticalScale(65):verticalScale(25),
+    marginTop: Platform.OS == "ios"?verticalScale(65):verticalScale(50),
     paddingRight: Platform.OS == "ios" ? "9%" : horizontalScale(18),
   },
   iPadInnerTextContainer: {

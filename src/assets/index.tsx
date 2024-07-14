@@ -4,8 +4,39 @@ export const images = {
   back: require("../assets/icons/back.png"),
   reward: require("../assets/icons/reward.png"),
   brain: require("../assets/icons/brain.png"),
+  send: require("../assets/icons/send.png"),
+  dropdown: require("../assets/icons/dropdown.png"),
+
+
   leaderboard: require("../assets/icons/leaderboard.png"),
   notification: require("../assets/icons/notification.png"),
+  unitedState: require("../assets/images/unitedstates.png"),
+  blueMap: require("../assets/images/blue-map.png"),
+  rank: require("../assets/images/rank.png"),
+  rank2: require("../assets/images/rank2.png"),
+  rank3: require("../assets/images/rank3.png"),
+  rankBack: require("../assets/images/rank-back.png"),
+  highSchoolMedal: require("../assets/images/highSchoolMedal.png"),
+
+  rank3Back: require("../assets/images/rank3Back.png"),
+  rank2Back: require("../assets/images/rank2Back.png"),
+  map2: require("../assets/images/map2.png"),
+  uganda: require("../assets/images/uganda.png"),
+  ukraine: require("../assets/images/ukraine.png"),
+  unitedArab: require("../assets/images/unitedArab.png"),
+  unitedkingdom: require("../assets/images/unitedkingdom.png"),
+  unitedstates: require("../assets/images/unitedstates.png"),
+  uruguay: require("../assets/images/uruguay.png"),
+  uzbekistan: require("../assets/images/uzbekistan.png"),
+
+
+
+
+
+  
+
+
+
   user1: require("../assets/images/user1.png"),
   user2: require("../assets/images/user2.png"),
   user3: require("../assets/images/user3.jpeg"),
@@ -20,6 +51,17 @@ export const images = {
   user12: require("../assets/images/user12.png"),
   user13: require("../assets/images/user13.png"),
   user14: require("../assets/images/user14.png"),
+  user15: require("../assets/images/user15.png"),
+  user16: require("../assets/images/user16.png"),
+  user17: require("../assets/images/user17.png"),
+  user18: require("../assets/images/user18.png"),
+  user19: require("../assets/images/user19.png"),
+  user20: require("../assets/images/user20.png"),
+  medal: require("../assets/images/medal.png"),
+
+
+
+  athletics: require("../assets/images/athletics.png"),
   circle: require("../assets/images/circle.png"),
   search: require("../assets/icons/search.png"),
   add: require("../assets/icons/add.png"),

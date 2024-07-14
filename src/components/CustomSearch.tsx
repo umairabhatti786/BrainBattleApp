@@ -1,5 +1,4 @@
 import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
-import DropDownPicker from "react-native-dropdown-picker";
 import CustomText from "./CustomText";
 import { colors } from "../utils/colors";
 import { windowWidth } from "../utils/Dimensions";

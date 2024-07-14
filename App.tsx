@@ -3,10 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import RootNavigator from './src/routes';
 import * as Font from 'expo-font';
 import { useFonts } from 'expo-font';
+import { useEffect, useState } from 'react';
 
-export default function App() {
-
-  const [fontsLoaded] = useFonts({
+const fetchFonts = () => {
+  return Font.loadAsync({
     'ClashDisplay-Light': require('./assets/fonts/ClashDisplay-Light.ttf'),
     'ClashDisplay-Regular': require('./assets/fonts/ClashDisplay-Regular.ttf'),
     'ClashDisplay-Medium': require('./assets/fonts/ClashDisplay-Medium.ttf'),
@@ -15,8 +15,38 @@ export default function App() {
     'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
     'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
     'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
-
+    // Add more fonts as needed
   });
+};
+
+export default function App() {
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+
+
+ 
+  useEffect(() => {
+    async function loadFonts() {
+      await fetchFonts();
+      setFontsLoaded(true);
+    }
+    loadFonts();
+  }, []);
+
+
+
+
+  // const [fontsLoaded] = useFonts({
+  //   'ClashDisplay-Light': require('./assets/fonts/ClashDisplay-Light.ttf'),
+  //   'ClashDisplay-Regular': require('./assets/fonts/ClashDisplay-Regular.ttf'),
+  //   'ClashDisplay-Medium': require('./assets/fonts/ClashDisplay-Medium.ttf'),
+  //   'ClashDisplay-Semibold': require('./assets/fonts/ClashDisplay-Semibold.ttf'),
+  //   'ClashDisplay-Bold': require('./assets/fonts/ClashDisplay-Bold.ttf'),
+  //   'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
+  //   'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
+  //   'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
+
+  // });
   return (
    <RootNavigator/>
   );
