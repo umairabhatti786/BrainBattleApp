@@ -18,7 +18,7 @@ import {
 } from "../../../utils/Mertics";
 import { images } from "../../../assets";
 import CustomText from "../../../components/CustomText";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import CustomButton from "../../../components/CustomButton";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { isiPad } from "../../../utils/CommonFun";
@@ -31,15 +31,38 @@ import { FindFriends, leaderBoardUserData } from "../../../utils/Data";
 import FindFriendsContainer from "../Friends/FindFriendsContainer";
 import LeaderBoadUserCard from "./LeaderBoadUserCard";
 import CountryDropDown from "../../../components/CountryDropDown";
+import { SwiperFlatList } from "react-native-swiper-flatlist";
 
 const LeaderBoard = ({ navigation }: any) => {
   const [seletedLeaderboard, setSeletedLeaderboard] = useState(1);
   const [selectedLeaderBoardUser, setSelectedLeaderBoardUser] = useState(2);
+  const swiperRef = useRef<SwiperFlatList>(null);
+
   const [selectedCountry, setSelectedCountry] = useState({
     name: "United States",
     image: images.unitedState,
   });
   const [isCountryDropDown, setIsCountryDropDown] = useState(false);
+
+  const rankingData = [
+    {
+      dayButtonColor: colors.blue200,
+      isMapRanking: true,
+      map: images.blueMap,
+      rankingBackground: images.rankBack,
+    },
+    {
+      dayButtonColor: colors.purple100,
+      isMapRanking: true,
+      map: images.map2,
+      rankingBackground: images.rank2Back,
+    },
+    {
+      dayButtonColor: "#FF4F4F70",
+      isMapRanking: false,
+      rankingBackground: images.rank3Back,
+    },
+  ];
 
   const LeaderUserRakingCard = ({
     image,
@@ -100,7 +123,7 @@ const LeaderBoard = ({ navigation }: any) => {
         </View>
 
         <CustomText
-            fontFam={"ClashDisplay-Semibold"}
+          fontFam={"ClashDisplay-Semibold"}
           fontWeight="bold"
           label={name}
           style={{ textAlign: "center" }}
@@ -146,6 +169,11 @@ const LeaderBoard = ({ navigation }: any) => {
       </>
     );
   };
+
+  // Function to handle index change on swipe
+  const handleIndexChange = ({ index }: any) => {
+    setSeletedLeaderboard(index + 1);
+  };
   return (
     <>
       <View
@@ -158,9 +186,9 @@ const LeaderBoard = ({ navigation }: any) => {
         <ScrollView
           scrollEnabled={isCountryDropDown == false}
           contentContainerStyle={{
-            paddingBottom: verticalScale(isiPad ? 500 : 320),
+            paddingBottom: 0,
             width: "100%",
-            paddingTop: verticalScale( isiPad?40: 60),
+            paddingTop: verticalScale(isiPad ? 40 : 60),
           }}
         >
           <View
@@ -202,8 +230,8 @@ const LeaderBoard = ({ navigation }: any) => {
                   />
                 </View>
                 <CustomText
-               fontFam={"ClashDisplay-Medium"}
-               fontWeight="600"
+                  fontFam={"ClashDisplay-Medium"}
+                  fontWeight="600"
                   label="Leaderboard"
                   size={18}
                   color={colors.black}
@@ -242,7 +270,10 @@ const LeaderBoard = ({ navigation }: any) => {
             }}
           >
             <TouchableOpacity
-              onPress={() => setSeletedLeaderboard(1)}
+              onPress={() => {
+                swiperRef.current.scrollToIndex({ index: 1 - 1 });
+                setSeletedLeaderboard(1);
+              }}
               style={{
                 width:
                   seletedLeaderboard == 1
@@ -261,7 +292,10 @@ const LeaderBoard = ({ navigation }: any) => {
               }}
             />
             <TouchableOpacity
-              onPress={() => setSeletedLeaderboard(2)}
+              onPress={() => {
+                swiperRef.current.scrollToIndex({ index: 2 - 1 });
+                setSeletedLeaderboard(2);
+              }}
               style={{
                 width:
                   seletedLeaderboard == 2
@@ -281,7 +315,10 @@ const LeaderBoard = ({ navigation }: any) => {
             />
 
             <TouchableOpacity
-              onPress={() => setSeletedLeaderboard(3)}
+              onPress={() => {
+                swiperRef.current.scrollToIndex({ index: 3 - 1 });
+                setSeletedLeaderboard(3);
+              }}
               style={{
                 width:
                   seletedLeaderboard == 3
@@ -300,181 +337,185 @@ const LeaderBoard = ({ navigation }: any) => {
               }}
             />
           </View>
+          <SwiperFlatList
+            ref={swiperRef}
+            index={seletedLeaderboard}
+            data={rankingData}
+            onChangeIndex={handleIndexChange} // Callback when index changes
+            renderItem={({ item, index }) => {
+              return (
+                <>
+                  <View style={{ width: windowWidth, height: windowHeight }}>
+                    <View
+                      style={{
+                        width: "70%",
+                        alignSelf: "center",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        alignContent: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <CustomButton
+                        bgColor={item.dayButtonColor}
+                        fontFam={"ClashDisplay-Medium"}
+                        fontWeight="600"
+                        text="Weekly"
+                        textColor={colors.black}
+                        width={"40%"}
+                      />
 
-          <View
-            style={{
-              width: "70%",
-              alignSelf: "center",
-              flexDirection: "row",
-              alignItems: "center",
-              alignContent: "center",
-              justifyContent: "space-between",
+                      <CustomButton
+                        text="All Time"
+                        bgColor={colors.white}
+                        textColor={"#B9B4E4"}
+                        width={"48%"}
+                      />
+                    </View>
+
+                    {item.isMapRanking && (
+                      <View
+                        style={{
+                          width: "80%",
+                          borderRadius: moderateScale(15),
+                          backgroundColor: "#80BAFF15",
+                          flexDirection: "row",
+                          alignItems: "center",
+                          padding: moderateScale(20),
+                          alignSelf: "center",
+                          marginTop: verticalScale(20),
+
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <View style={{ width: "60%" }}>
+                          <CustomText
+                            fontFam={"ClashDisplay-Medium"}
+                            fontWeight="600"
+                            lineHeight={isiPad ? 40 : 22}
+                            label="You are the 890th ranked player in the USA!"
+                            size={18}
+                            color={colors.black}
+                          />
+                        </View>
+
+                        <Image
+                          style={{
+                            width: moderateScale(110),
+                            height: moderateScale(80),
+                          }}
+                          source={item?.map}
+                          resizeMode="contain"
+                        />
+                      </View>
+                    )}
+
+                    <View style={{ marginTop: verticalScale(40) }}>
+                      <View
+                        style={{
+                          marginHorizontal: moderateScale(20),
+                          flexDirection: "row",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <View
+                          style={{
+                            marginRight: moderateScale(-4),
+                            height: verticalScale(300),
+                            alignItems: "center",
+                          }}
+                        >
+                          <LeaderUserRakingCard
+                            name="Clare Rich"
+                            points="1,469 ELO"
+                            image={images.user18}
+                            rightImage={images.athletics}
+                          />
+
+                          <Rank2
+                            width={moderateScale(110)}
+                            height={verticalScale(isiPad ? 230 : 200)}
+                          />
+                        </View>
+                        <View
+                          style={{
+                            marginBottom: verticalScale(50),
+                            height: verticalScale(300),
+                            alignItems: "center",
+                          }}
+                        >
+                          <LeaderUserRakingCard
+                            name="Jon Garcia"
+                            points="2,569 ELO"
+                            image={images.user19}
+                            rightImage={images.highSchoolMedal}
+                            madel={images.medal}
+                          />
+
+                          <Rank1
+                            width={moderateScale(100)}
+                            height={verticalScale(isiPad ? 190 : 170)}
+                          />
+                        </View>
+                        <View
+                          style={{
+                            marginTop: verticalScale(50),
+                            height: verticalScale(300),
+                            alignItems: "center",
+                          }}
+                        >
+                          <LeaderUserRakingCard
+                            name="Craig Gouse"
+                            points="1,053 ELO"
+                            image={images.user20}
+                            rightImage={images.roosevelt}
+                          />
+
+                          <Rank3
+                            width={moderateScale(100)}
+                            height={verticalScale(isiPad ? 210 : 180)}
+                          />
+                        </View>
+
+                        <View></View>
+                      </View>
+                      <View
+                        style={{
+                          position: "absolute",
+                          top: verticalScale(isiPad ? 290 : 260),
+                        }}
+                      >
+                        <ImageBackground
+                          resizeMode="cover"
+                          style={{
+                            width: windowWidth,
+                            height: windowHeight,
+                            paddingTop: verticalScale(10),
+                          }}
+                          source={item.rankingBackground}
+                        >
+                          <FlatList
+                            data={leaderBoardUserData}
+                            style={{
+                              paddingTop: verticalScale(isiPad ? 30 : 20),
+                              marginTop: verticalScale(isiPad ? 30 : 20),
+                            }}
+                            showsVerticalScrollIndicator={false}
+                            keyExtractor={(item, index) => index.toString()}
+                            contentContainerStyle={{
+                              marginHorizontal: moderateScale(20),
+                            }}
+                            renderItem={renderFindFriendsList}
+                          />
+                        </ImageBackground>
+                      </View>
+                    </View>
+                  </View>
+                </>
+              );
             }}
-          >
-            <CustomButton
-              bgColor={
-                seletedLeaderboard == 1
-                  ? colors.blue200
-                  : seletedLeaderboard == 2
-                  ? colors.purple100
-                  : "#FF4F4F70"
-              }
-              fontFam={"ClashDisplay-Medium"}
-              fontWeight="600"
-              text="Weekly"
-              textColor={colors.black}
-              width={"40%"}
-            />
-
-            <CustomButton
-              text="All Time"
-              bgColor={colors.white}
-              textColor={"#B9B4E4"}
-              width={"48%"}
-            />
-          </View>
-          {seletedLeaderboard != 3 && (
-            <View
-              style={{
-                width: "80%",
-                borderRadius: moderateScale(15),
-                backgroundColor: "#80BAFF15",
-                flexDirection: "row",
-                alignItems: "center",
-                padding: moderateScale(20),
-                alignSelf: "center",
-                marginTop: verticalScale(20),
-
-                justifyContent: "space-between",
-              }}
-            >
-              <View style={{ width: "60%" }}>
-                <CustomText
-                  fontFam={"ClashDisplay-Medium"}
-                  fontWeight="600"
-                  lineHeight={isiPad ? 40 : 22}
-                  label="You are the 890th ranked player in the USA!"
-                  size={18}
-                  color={colors.black}
-                />
-              </View>
-
-              <Image
-                style={{ width: moderateScale(110), height: moderateScale(80) }}
-                source={seletedLeaderboard == 1 ? images.blueMap : images.map2}
-                resizeMode="contain"
-              />
-            </View>
-          )}
-
-          <View style={{ marginTop: verticalScale(40) }}>
-            <View
-              style={{
-                marginHorizontal: moderateScale(20),
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <View
-                style={{
-                  marginRight: moderateScale(-4),
-                  height: verticalScale(300),
-                  alignItems: "center",
-                }}
-              >
-                <LeaderUserRakingCard
-                  name="Clare Rich"
-                  points="1,469 ELO"
-                  image={images.user18}
-                  rightImage={images.athletics}
-                />
-
-                <Rank2
-                  width={moderateScale(110)}
-                  height={verticalScale(isiPad ? 230 : 200)}
-                />
-              </View>
-              <View
-                style={{
-                  marginBottom: verticalScale(50),
-                  height: verticalScale(300),
-                  alignItems: "center",
-                }}
-              >
-                <LeaderUserRakingCard
-                  name="Jon Garcia"
-                  points="2,569 ELO"
-                  image={images.user19}
-                  rightImage={images.highSchoolMedal}
-                  madel={images.medal}
-                />
-
-                <Rank1
-                  width={moderateScale(100)}
-                  height={verticalScale(isiPad ? 190 : 170)}
-                />
-              </View>
-              <View
-                style={{
-                  marginTop: verticalScale(50),
-                  height: verticalScale(300),
-                  alignItems: "center",
-                }}
-              >
-                <LeaderUserRakingCard
-                  name="Craig Gouse"
-                  points="1,053 ELO"
-                  image={images.user20}
-                  rightImage={images.roosevelt}
-                />
-
-                <Rank3
-                  width={moderateScale(100)}
-                  height={verticalScale(isiPad ? 210 : 180)}
-                />
-              </View>
-
-              <View>
-              </View>
-            </View>
-            <View
-              style={{
-                position: "absolute",
-                top: verticalScale(isiPad ? 290 : 260),
-              }}
-            >
-              <ImageBackground
-                resizeMode="cover"
-                style={{
-                  width: windowWidth,
-                  height: windowHeight,
-                  paddingTop:verticalScale(10)
-                }}
-                source={
-                  seletedLeaderboard == 1
-                    ? images.rankBack
-                    : seletedLeaderboard == 2
-                    ? images.rank2Back
-                    : images.rank3Back
-                }
-              >
-                <FlatList
-                  data={leaderBoardUserData}
-                  style={{
-                    paddingTop: verticalScale(isiPad ? 30 : 20),
-                    marginTop: verticalScale(isiPad ? 30 : 20),
-                  }}
-                  showsVerticalScrollIndicator={false}
-                  keyExtractor={(item, index) => index.toString()}
-                  contentContainerStyle={{
-                    marginHorizontal: moderateScale(20),
-                  }}
-                  renderItem={renderFindFriendsList}
-                />
-              </ImageBackground>
-            </View>
-          </View>
+          />
         </ScrollView>
       </View>
       {isCountryDropDown && (
@@ -488,6 +529,4 @@ const LeaderBoard = ({ navigation }: any) => {
 };
 export default LeaderBoard;
 
-const styles = StyleSheet.create({
-  
-});
+const styles = StyleSheet.create({});
