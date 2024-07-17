@@ -2,6 +2,7 @@ import {
   FlatList,
   Image,
   ImageBackground,
+  Platform,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -35,8 +36,12 @@ import { SwiperFlatList } from "react-native-swiper-flatlist";
 
 const LeaderBoard = ({ navigation }: any) => {
   const [seletedLeaderboard, setSeletedLeaderboard] = useState(1);
+  const [selectedRanking, setSelectedRanking] = useState("Country Rankings");
   const [selectedLeaderBoardUser, setSelectedLeaderBoardUser] = useState(2);
-  const swiperRef = useRef<SwiperFlatList>(null);
+  const swiperRef = useRef<any>(null);
+  const [regionalRanking, setRegionalRanking] = useState("St. Louis");
+  const [countryRanking, setCountryRanking] = useState("USA");
+  const [highSchoolRanking, setHighSchoolRanking] = useState("Roosevelt HS");
 
   const [selectedCountry, setSelectedCountry] = useState({
     name: "United States",
@@ -50,17 +55,20 @@ const LeaderBoard = ({ navigation }: any) => {
       isMapRanking: true,
       map: images.blueMap,
       rankingBackground: images.rankBack,
+      ranking: "Country Rankings",
     },
     {
       dayButtonColor: colors.purple100,
       isMapRanking: true,
       map: images.map2,
       rankingBackground: images.rank2Back,
+      ranking: "Regional Rankings",
     },
     {
       dayButtonColor: "#FF4F4F70",
       isMapRanking: false,
       rankingBackground: images.rank3Back,
+      ranking: "High School Rankings",
     },
   ];
 
@@ -171,7 +179,8 @@ const LeaderBoard = ({ navigation }: any) => {
   };
 
   // Function to handle index change on swipe
-  const handleIndexChange = ({ index }: any) => {
+  const handleIndexChange = ({ item, index }: any) => {
+    console.log("Knkcndkcd", item);
     setSeletedLeaderboard(index + 1);
   };
   return (
@@ -188,7 +197,9 @@ const LeaderBoard = ({ navigation }: any) => {
           contentContainerStyle={{
             paddingBottom: 0,
             width: "100%",
-            paddingTop: verticalScale(isiPad ? 40 : 60),
+            paddingTop: verticalScale(
+              isiPad ? 40 : Platform.OS == "ios" ? 60 : 10
+            ),
           }}
         >
           <View
@@ -212,23 +223,67 @@ const LeaderBoard = ({ navigation }: any) => {
                 source={images.back}
               />
             </TouchableOpacity>
-            <View style={appStyles.row}>
-              <View style={{ gap: verticalScale(5) }}>
-                <View style={{ ...appStyles.row, gap: moderateScale(5) }}>
+            <View style={{ ...appStyles.row, marginLeft: moderateScale(20) }}>
+              <View
+                style={{
+                  gap: verticalScale(5),
+                  width:
+                    seletedLeaderboard == 1
+                      ? "55%"
+                      : seletedLeaderboard == 2
+                      ? "65%"
+                      : "55%",
+                  flexWrap: "wrap",
+                  // backgroundColor: "red",
+                  marginRight: moderateScale(10),
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <View
+                  style={{
+                    ...appStyles.row,
+                    gap: moderateScale(5),
+                    width: "90%",
+                    alignSelf: "center",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
                   <CustomText
                     fontFam={"ClashDisplay-Semibold"}
-                    label="USA"
+                    label={
+                      seletedLeaderboard == 1
+                        ? countryRanking
+                        : seletedLeaderboard == 2
+                        ? regionalRanking
+                        : highSchoolRanking
+                    }
                     size={18}
+                     fontWeight="700"
+
                     color={colors.black}
                   />
+                  {seletedLeaderboard != 3 && (
+                    <CustomText
+                      // fontFam={"ClashDisplay-Medium"}
+                      // fontWeight="600"
+                      label="- SAT/ACT"
+                      size={18}
+                      color={colors.black}
+                    />
+                  )}
+                </View>
+
+                {seletedLeaderboard == 3 && (
                   <CustomText
                     fontFam={"ClashDisplay-Medium"}
                     fontWeight="600"
-                    label="- SAT/ACT"
+                    label="SAT/ACT"
                     size={18}
                     color={colors.black}
                   />
-                </View>
+                )}
                 <CustomText
                   fontFam={"ClashDisplay-Medium"}
                   fontWeight="600"
@@ -238,17 +293,35 @@ const LeaderBoard = ({ navigation }: any) => {
                 />
               </View>
               <TouchableOpacity
-                style={{ ...appStyles.row, gap: 20 }}
+                style={{ ...appStyles.row, gap: moderateScale(10) }}
                 activeOpacity={0.5}
+                disabled={seletedLeaderboard != 1}
                 onPress={() => setIsCountryDropDown(!isCountryDropDown)}
               >
-                <Image
+                <View
                   style={{
-                    width: moderateScale(50),
+                    width:
+                      seletedLeaderboard != 2
+                        ? moderateScale(50)
+                        : moderateScale(10),
                     height: moderateScale(50),
                   }}
-                  source={selectedCountry.image}
-                />
+                >
+                  {seletedLeaderboard != 2 && (
+                    <Image
+                      style={{
+                        width: moderateScale(50),
+                        height: moderateScale(50),
+                      }}
+                      source={
+                        seletedLeaderboard == 1
+                          ? selectedCountry.image
+                          : images.roosevelt
+                      }
+                    />
+                  )}
+                </View>
+
                 <Image
                   resizeMode="contain"
                   style={{
