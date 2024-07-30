@@ -27,7 +27,6 @@ const CustomModal = ({
   selectectedRewarsRank,
 
   width,
-
 }: any) => {
   const badgeData = [
     {
@@ -59,7 +58,7 @@ const CustomModal = ({
     },
   ];
 
-  console.log("selectectedRewarsRank",selectectedRewarsRank)
+  console.log("selectectedRewarsRank", selectectedRewarsRank);
   return (
     <Modal
       isVisible={modalVisible}
@@ -70,7 +69,7 @@ const CustomModal = ({
       <View
         style={{
           width: width || "99%",
-          height:  isiPad? windowHeight / 1.1: windowHeight /1.2,
+          height: isiPad ? windowHeight / 1.1 : windowHeight / 1.2,
           backgroundColor: colors.white,
           borderRadius: moderateScale(25),
           elevation: 10,
@@ -83,8 +82,8 @@ const CustomModal = ({
         }}
       >
         <TouchableOpacity
-        activeOpacity={0.4}
-        onPress={()=>setModalVisible(false)}
+          activeOpacity={0.4}
+          onPress={() => setModalVisible(false)}
           style={{
             width: moderateScale(20),
             height: moderateScale(20),
@@ -170,7 +169,7 @@ const CustomModal = ({
             color={"#8E8E8E"}
           />
 
-          {selectectedRewarsRank?.data?.map((item:any, index:any) => {
+          {selectectedRewarsRank?.data?.map((item: any, index: any) => {
             return (
               <View
                 key={index}
@@ -187,32 +186,41 @@ const CustomModal = ({
                   marginVertical: verticalScale(7),
                   borderRadius: moderateScale(15),
                   paddingRight: moderateScale(10),
+                  paddingVertical:verticalScale(5)
                 }}
               >
                 <View style={appStyles.row}>
                   <View
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginTop: verticalScale(5),
-                //   width:isiPad ? verticalScale(50) : verticalScale(45),
-                  height:isiPad ? verticalScale(50) : verticalScale(45)
-                }}
-              >
-                {item.bedageImage}
-                <View style={{position:"absolute",bottom:verticalScale(17)}}>
-
-                <CustomText
-            label="Title"
-            size={11}
-            // style={{ alignSelf: "flex-end", marginVertical: verticalScale(20) }}
-            fontFam={"ClashDisplay-Medium"}
-            color={"#4E4E4E"}
-          />
+                    style={{
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginTop: verticalScale(5),
+                        width:isiPad ? verticalScale(50) : verticalScale(30),
+                      height: isiPad ? verticalScale(50) : verticalScale(30),
+                    }}
+                  >
+                    <Image
+                    style={{width:"100%",height:"100%"}}
+                    source={item.bedageImage}
+                    />
+                    {/* {item.bedageImage} */}
+                    <View
+                      style={{
+                        position: "absolute",
+                        bottom: verticalScale(17),
+                      }}
+                    >
+                      <CustomText
+                        label="Title"
+                        size={11}
+                        // style={{ alignSelf: "flex-end", marginVertical: verticalScale(20) }}
+                        fontFam={"ClashDisplay-Medium"}
+                        color={"#4E4E4E"}
+                      />
                     </View>
-              </View>
+                  </View>
 
-{/* 
+                  {/* 
                   <UncommanBadage
                     style={{
                       alignItems: "center",
@@ -225,9 +233,9 @@ const CustomModal = ({
                   <CustomText
                     label={item.name}
                     size={13}
-                    style={{
-                      marginTop: verticalScale(-5),
-                    }}
+                    // style={{
+                    //   marginTop: verticalScale(-5),
+                    // }}
                     fontFam={"ClashDisplay-Medium"}
                     color={item.nameColor}
                   />

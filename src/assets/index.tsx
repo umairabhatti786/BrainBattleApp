@@ -39,6 +39,11 @@ export const images = {
   mastermind: require("../assets/images/mastermind.png"),
   prodigy: require("../assets/images/prodigy.png"),
 
+  commanBadage: require("../assets/images/commanBadage.png"),
+  rareBadge: require("../assets/images/rareBadge.png"),
+  uniqueBadge: require("../assets/images/uniqueBadge.png"),
+  uncommanBadge: require("../assets/images/uncommanBadge.png"),
+
 
 
   ukraine: require("../assets/images/ukraine.png"),

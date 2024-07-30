@@ -241,13 +241,13 @@ export const country=[
     maxImageShadowColor: "#F0BDCC",
     data: [
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage: images.uniqueBadge,
         name: "Unique Badge",
         nameColor: "#9E00FF",
         value: "0.75%",
       },
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage: images.rareBadge,
         name: "Rare Badge",
         nameColor: "#A20000",
   
@@ -255,20 +255,20 @@ export const country=[
       },
   
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage:images.commanBadage,
         name: "Uncommon Badge",
         nameColor: "#007CD6",
         value: "7%",
       },
   
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage:images.commanBadage,
         name: "Common Badge",
         nameColor: colors.black,
         value: "40%",
       },
       {
-        bedageImage: <TitleIcon />,
+        bedageImage:images.commanBadage,
         name: "Title",
         nameColor: colors.black,
         value: "50%",
@@ -287,13 +287,13 @@ export const country=[
     maxImageShadowColor: "#1C361A",
     data: [
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage: images.uniqueBadge,
         name: "Unique Badge",
         nameColor: "#9E00FF",
         value: "1.25%",
       },
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage: images.rareBadge,
         name: "Rare Badge",
         nameColor: "#A20000",
   
@@ -301,20 +301,20 @@ export const country=[
       },
   
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage:images.uncommanBadge,
         name: "Uncommon Badge",
         nameColor: "#007CD6",
         value: "10.5%",
       },
   
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage:images.commanBadage,
         name: "Common Badge",
         nameColor: colors.black,
         value: "40%",
       },
       {
-        bedageImage: <TitleIcon />,
+        bedageImage:images.commanBadage,
         name: "Title",
         nameColor: colors.black,
         value: "44.5%",
@@ -333,13 +333,13 @@ export const country=[
     maxImageShadowColor: "#C200D3",
     data: [
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage: images.uniqueBadge,
         name: "Unique Badge",
         nameColor: "#9E00FF",
         value: "2%",
       },
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage: images.rareBadge,
         name: "Rare Badge",
         nameColor: "#A20000",
   
@@ -347,14 +347,14 @@ export const country=[
       },
   
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage:images.uncommanBadge,
         name: "Uncommon Badge",
         nameColor: "#007CD6",
         value: "15%",
       },
   
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage:images.commanBadage,
         name: "Common Badge",
         nameColor: colors.black,
         value: "46%",
@@ -378,13 +378,13 @@ export const country=[
     maxImageShadowColor: "#037676",
     data: [
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage: images.uniqueBadge,
         name: "Unique Badge",
         nameColor: "#9E00FF",
         value: "4%",
       },
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage: images.rareBadge,
         name: "Rare Badge",
         nameColor: "#A20000",
   
@@ -392,20 +392,20 @@ export const country=[
       },
   
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage:images.uncommanBadge,
         name: "Uncommon Badge",
         nameColor: "#007CD6",
         value: "25.5%",
       },
   
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage:images.commanBadage,
         name: "Common Badge",
         nameColor: colors.black,
         value: "47%",
       },
       {
-        bedageImage: <TitleIcon />,
+        bedageImage:images.commanBadage,
         name: "Title",
         nameColor: colors.black,
         value: "15%",
@@ -424,13 +424,13 @@ export const country=[
     maxImageShadowColor: "#F6DE8A",
     data: [
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage: images.uniqueBadge,
         name: "Unique Badge",
         nameColor: "#9E00FF",
         value: "6%",
       },
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage: images.rareBadge,
         name: "Rare Badge",
         nameColor: "#A20000",
   
@@ -438,14 +438,14 @@ export const country=[
       },
   
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage:images.uncommanBadge,
         name: "Uncommon Badge",
         nameColor: "#007CD6",
         value: "40%",
       },
   
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage:images.commanBadage,
         name: "Common Badge",
         nameColor: colors.black,
         value: "42%",
@@ -464,13 +464,13 @@ export const country=[
     minImageShadowColor: "#F6DE8A",
     data: [
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage: images.uniqueBadge,
         name: "Unique Badge",
         nameColor: "#9E00FF",
         value: "<0.5%",
       },
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage: images.rareBadge,
         name: "Rare Badge",
         nameColor: "#A20000",
   
@@ -478,14 +478,14 @@ export const country=[
       },
   
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage:images.uncommanBadge,
         name: "Uncommon Badge",
         nameColor: "#007CD6",
         value: "25%",
       },
   
       {
-        bedageImage: <UncommanBadage />,
+        bedageImage:images.commanBadage,
         name: "Common Badge",
         nameColor: colors.black,
         value: "65%",

@@ -47,67 +47,7 @@ const Rewards = ({ navigation }: any) => {
   const [isSelectectedRewarsRank, setIsSelectectedRewarsRank] = useState(false);
   const [selectedProgressTab, setSelectedProgressTab] = useState("Monthly");
 
-  // const data=[ {value:50}, {value:80}, {value:90}, {value:70} ]
-  const data = [
-    { value: 300, label: "1", frontColor: "#FFC22F" },
-    { value: 1000, label: "2", frontColor: "#FFC22F" },
-    { value: 500, label: "3", frontColor: "#FFC22F" },
-    { value: 1050, label: "", frontColor: "#FFC22F" },
-    { value: 1200, label: "", frontColor: "#FFC22F" },
-    { value: 500, label: "", frontColor: "#FFC22F" },
-    { value: 700, label: "", frontColor: "#FFC22F" },
-    { value: 900, label: "15", frontColor: "#FFC22F" },
-    { value: 1000, label: "", frontColor: "#FFC22F" },
-    { value: 450, label: "", frontColor: "#FFC22F" },
-    { value: 1000, label: "", frontColor: "#FFC22F" },
-    { value: 300, label: "", frontColor: "#FFC22F" },
-
-    // { value: 650, label: '4' },
-    { value: 1200, label: "", frontColor: "#FFC22F" },
-    ,
-  ];
-
-  const lineChatData = [
-    { value: 300, label: "1", frontColor: "#FFC22F" },
-    { value: 1000, label: "", frontColor: "#FFC22F" },
-    { value: 500, label: "", frontColor: "#FFC22F" },
-    { value: 1050, label: "182", frontColor: "#FFC22F" },
-    { value: 700, label: "", frontColor: "#FFC22F" },
-    { value: 900, label: "", frontColor: "#FFC22F" },
-    {
-      value: 1000,
-      label: "",
-      frontColor: "#FFC22F",
-      showStrip: true,
-      stripHeight: 190,
-      stripColor: "transparent",
-      dataPointLabelComponent: () => {
-        return (
-          <View
-            style={{
-              paddingHorizontal: 8,
-              paddingVertical: 5,
-              borderRadius: 4,
-            }}
-          >
-            <Text
-              style={{
-                color: "#626262",
-                fontSize: verticalScale(13),
-                fontFamily: "ClashDisplay-Medium",
-              }}
-            >
-              1000
-            </Text>
-          </View>
-        );
-      },
-      dataPointLabelShiftY: isiPad ? -50 : -30,
-      dataPointLabelShiftX: -4,
-    },
-    { value: 1200, label: "", frontColor: "#FFC22F" },
-    ,
-  ];
+ 
 
   return (
     <>
@@ -219,7 +159,6 @@ const Rewards = ({ navigation }: any) => {
               style={{
                 padding: moderateScale(20),
                 gap: verticalScale(10),
-                // backgroundColor:"red",
               }}
             >
               <View
@@ -227,7 +166,6 @@ const Rewards = ({ navigation }: any) => {
                   // F0BDCC
                   flexDirection: "row",
                   justifyContent: "space-between",
-                  // height: verticalScale(300),
                 }}
               >
                 <View style={{ width: "50%" }}>
@@ -274,18 +212,7 @@ const Rewards = ({ navigation }: any) => {
                       color={"#877777"}
                     />
 
-                    {/* <RewardProgress
-              points={300}
-              progressColor={colors.purple100}
-              primaryBackgrondColor={"#E8E8E880"}
-              secondaryBackgrondColor={"#D9D9D900"}
-              height={isiPad?verticalScale(10): 10}
-              tierSilverPoints={100}
-              tierBronzePpoints={500}
-              tierGoldPoints={1000}
-              tierPlatinumPoints={1500}
-              useAngle={true}
-            /> */}
+                  
                   </View>
                 </View>
               </View>
@@ -314,7 +241,6 @@ const Rewards = ({ navigation }: any) => {
                   shadowOffset: { width: 0, height: isiPad ? 5 : 2 },
                   shadowOpacity: 0.5,
                   shadowRadius: 2,
-                  // alignItems:"center"
                 }}
               >
                 <CustomText
