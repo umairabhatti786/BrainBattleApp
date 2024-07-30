@@ -6,6 +6,12 @@ export const images = {
   brain: require("../assets/icons/brain.png"),
   send: require("../assets/icons/send.png"),
   dropdown: require("../assets/icons/dropdown.png"),
+  nextArrow: require("../assets/icons/next-arrow.png"),
+  backArrow: require("../assets/icons/back-arrow.png"),
+  cross: require("../assets/icons/cross.png"),
+
+
+
 
 
   leaderboard: require("../assets/icons/leaderboard.png"),
@@ -21,7 +27,20 @@ export const images = {
   rank3Back: require("../assets/images/rank3Back.png"),
   rank2Back: require("../assets/images/rank2Back.png"),
   map2: require("../assets/images/map2.png"),
+  brainJester: require("../assets/images/brain-jester.png"),
+
   uganda: require("../assets/images/uganda.png"),
+
+  beginner: require("../assets/images/beginner.png"),
+
+  elite: require("../assets/images/elite.png"),
+  kingQueen: require("../assets/images/king-queen.png"),
+  legend: require("../assets/images/legend.png"),
+  mastermind: require("../assets/images/mastermind.png"),
+  prodigy: require("../assets/images/prodigy.png"),
+
+
+
   ukraine: require("../assets/images/ukraine.png"),
   unitedArab: require("../assets/images/unitedArab.png"),
   unitedkingdom: require("../assets/images/unitedkingdom.png"),
