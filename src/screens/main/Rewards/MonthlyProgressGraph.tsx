@@ -62,4 +62,3 @@ const MonthlyProgressGraph = ({}: any) => {
 
 export default MonthlyProgressGraph;
 
-const styles = StyleSheet.create({});

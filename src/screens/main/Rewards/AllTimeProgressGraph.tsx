@@ -13,10 +13,7 @@ import { windowHeight, windowWidth } from "../../../utils/Dimensions";
 import { moderateScale, verticalScale } from "../../../utils/Mertics";
 import { isiPad } from "../../../utils/CommonFun";
 import {
-  BarChart,
   LineChart,
-  PieChart,
-  PopulationPyramid,
   yAxisSides,
 } from "react-native-gifted-charts";
 import { AllTimeGraphData, MonthlyGraphdata } from "../../../utils/Data";
@@ -25,7 +22,6 @@ const AllTimeProgressGraph = ({}: any) => {
     <View>
       <LineChart
         data={AllTimeGraphData}
-        // width={screenWidth - 40}
         width={isiPad ? windowWidth / 1.2 : windowWidth / 1.3}
         height={isiPad ? verticalScale(200) : 180}
         yAxisSide={yAxisSides.RIGHT}
@@ -34,13 +30,10 @@ const AllTimeProgressGraph = ({}: any) => {
         xAxisLabelTextStyle={{ color: "#8E8E8E" }}
         initialSpacing={0}
         yAxisLabelSuffix=""
-        // yAxisLabelWidth={40}
         adjustToWidth={true}
         thickness={4}
         xAxisColor={"#b0b0b0"}
-        // hideAxesAndRules
         hideOrigin
-        // hideYAxisText
         curved
         yAxisColor="transparent"
         rulesType="solid"

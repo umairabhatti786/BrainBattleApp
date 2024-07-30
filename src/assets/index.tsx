@@ -43,6 +43,8 @@ export const images = {
   rareBadge: require("../assets/images/rareBadge.png"),
   uniqueBadge: require("../assets/images/uniqueBadge.png"),
   uncommanBadge: require("../assets/images/uncommanBadge.png"),
+  title: require("../assets/images/title.png"),
+
 
 
 

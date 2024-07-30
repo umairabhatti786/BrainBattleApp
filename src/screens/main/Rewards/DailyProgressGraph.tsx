@@ -8,15 +8,11 @@ import {
     View,
   } from "react-native";
   import React, { useState } from "react";
-  import Modal from "react-native-modal";
   import { windowHeight, windowWidth } from "../../../utils/Dimensions";
   import { moderateScale, verticalScale } from "../../../utils/Mertics";
   import { isiPad } from "../../../utils/CommonFun";
   import {
     BarChart,
-    LineChart,
-    PieChart,
-    PopulationPyramid,
     yAxisSides,
   } from "react-native-gifted-charts";
   import { DailyGraphdata, MonthlyGraphdata } from "../../../utils/Data";

@@ -17,25 +17,10 @@ import {
 } from "../../../utils/Mertics";
 import { appStyles } from "../../../utils/appStyles";
 import CustomText from "../../../components/CustomText";
-import { windowWidth } from "../../../utils/Dimensions";
 import { images } from "../../../assets";
-import * as Progress from "react-native-progress";
 import RewardProgress from "../../../components/RewardProgress";
 import { useState } from "react";
 import RewardDetailModal from "./RewardDetailModal";
-import UncommanBadage from "../../../../assets/uncommanBadage.svg";
-import UniqueBadage from "../../../../assets/uniqueBadage.svg";
-import RareBadage from "../../../../assets/rareBadage.svg";
-import CommanBadage from "../../../../assets/commanBadage.svg";
-import { fonts } from "../../../utils/fonts";
-import {
-  BarChart,
-  LineChart,
-  PieChart,
-  PopulationPyramid,
-  yAxisSides,
-} from "react-native-gifted-charts";
-import Svg, { Rect, Defs, Pattern, Path } from "react-native-svg";
 import MonthlyProgressGraph from "./MonthlyProgressGraph";
 import AllTimeProgressGraph from "./AllTimeProgressGraph";
 import DailyProgressGraph from "./DailyProgressGraph";

@@ -255,7 +255,7 @@ export const country=[
       },
   
       {
-        bedageImage:images.commanBadage,
+        bedageImage:images.uncommanBadge,
         name: "Uncommon Badge",
         nameColor: "#007CD6",
         value: "7%",
@@ -268,8 +268,9 @@ export const country=[
         value: "40%",
       },
       {
-        bedageImage:images.commanBadage,
+        bedageImage:images.title,
         name: "Title",
+        isTitle:true,
         nameColor: colors.black,
         value: "50%",
       },
@@ -314,8 +315,9 @@ export const country=[
         value: "40%",
       },
       {
-        bedageImage:images.commanBadage,
+        bedageImage:images.title,
         name: "Title",
+        isTitle:true,
         nameColor: colors.black,
         value: "44.5%",
       },
@@ -360,8 +362,9 @@ export const country=[
         value: "46%",
       },
       {
-        bedageImage: <TitleIcon />,
+        bedageImage: images.title,
         name: "Title",
+        isTitle:true,
         nameColor: colors.black,
         value: "30%",
       },
@@ -405,8 +408,9 @@ export const country=[
         value: "47%",
       },
       {
-        bedageImage:images.commanBadage,
+        bedageImage:images.title,
         name: "Title",
+        isTitle:true,
         nameColor: colors.black,
         value: "15%",
       },
@@ -448,6 +452,7 @@ export const country=[
         bedageImage:images.commanBadage,
         name: "Common Badge",
         nameColor: colors.black,
+      
         value: "42%",
       },
      
