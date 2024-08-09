@@ -9,6 +9,24 @@ export const images = {
   nextArrow: require("../assets/icons/next-arrow.png"),
   backArrow: require("../assets/icons/back-arrow.png"),
   cross: require("../assets/icons/cross.png"),
+  setting: require("../assets/icons/setting.png"),
+  pencil: require("../assets/icons/pencil.png"),
+  preferences: require("../assets/icons/preferences.png"),
+  terms: require("../assets/icons/terms.png"),
+  policy: require("../assets/icons/policy.png"),
+  feedback: require("../assets/icons/feedback.png"),
+  help: require("../assets/icons/help.png"),
+  logout: require("../assets/icons/logout.png"),
+  download: require("../assets/icons/download.png"),
+  share: require("../assets/icons/share.png"),
+
+
+
+
+  
+  backProfile: require("../assets/icons/back-profile.png"),
+
+
 
 
 
@@ -18,6 +36,25 @@ export const images = {
   notification: require("../assets/icons/notification.png"),
   unitedState: require("../assets/images/unitedstates.png"),
   blueMap: require("../assets/images/blue-map.png"),
+  qrcode: require("../assets/images/qrcode.png"),
+  qrcodeImage: require("../assets/images/qrcode-image.png"),
+
+  plan: require("../assets/images/plan.png"),
+  ukflag: require("../assets/images/ukflag.png"),
+  sat: require("../assets/images/sat.png"),
+  act: require("../assets/images/act.png"),
+
+  soon: require("../assets/images/soon.png"),
+  tick: require("../assets/images/tick.png"),
+  battle: require("../assets/images/battle.png"),
+
+  redCross: require("../assets/images/red-cross.png"),
+
+
+
+
+
+
   rank: require("../assets/images/rank.png"),
   rank2: require("../assets/images/rank2.png"),
   rank3: require("../assets/images/rank3.png"),
@@ -43,6 +80,11 @@ export const images = {
   rareBadge: require("../assets/images/rareBadge.png"),
   uniqueBadge: require("../assets/images/uniqueBadge.png"),
   uncommanBadge: require("../assets/images/uncommanBadge.png"),
+  uniqueApolloBadge: require("../assets/images/uniqueApolloBadge.png"),
+  uncommanBadge1: require("../assets/images/uncommanBadge1.png"),
+  raeCannonBadge: require("../assets/images/raeCannonBadge.png"),
+
+
   title: require("../assets/images/title.png"),
 
 

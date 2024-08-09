@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import { colors } from "./colors";
+import { isiPad } from "./CommonFun";
 
 export const appStyles = StyleSheet.create({
   containerStyle: {
@@ -14,6 +16,14 @@ export const appStyles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  elevation:{
+    elevation: 5,
+    shadowColor: colors.black,
+    shadowOffset: { width: 2, height: isiPad ? 4 : 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+    backgroundColor:colors.white
   },
 
   mainContainer: {

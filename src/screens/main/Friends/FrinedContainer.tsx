@@ -15,26 +15,25 @@ import { images } from "../../../assets";
 import CustomText from "../../../components/CustomText";
 import { fonts } from "../../../utils/fonts";
 import { colors } from "../../../utils/colors";
-import * as Device from 'expo-device';
+import * as Device from "expo-device";
 import { isiPad } from "../../../utils/CommonFun";
 
-const FrinedContainer = ({ navigation, item }: any) => {
-
+const FrinedContainer = ({ navigation, item, onPress }: any) => {
   return (
-    <View
+    <TouchableOpacity
+      activeOpacity={0.6}
+      onPress={onPress}
       style={{
         ...appStyles.row,
-        gap: isiPad?  horizontalScale(20):horizontalScale(30),
+        gap: isiPad ? horizontalScale(20) : horizontalScale(30),
         marginVertical: verticalScale(15),
         // backgroundColor:"red",
-        alignSelf:"flex-start",
-        alignItems:"flex-start"
+        alignSelf: "flex-start",
+        alignItems: "flex-start",
       }}
     >
       <View>
-
-
-      <View
+        <View
           style={{
             width: moderateScale(50),
             height: moderateScale(50),
@@ -46,10 +45,19 @@ const FrinedContainer = ({ navigation, item }: any) => {
             style={{ width: "100%", height: "100%" }}
             source={item?.image}
           />
-
         </View>
-        <View style={{width:moderateScale(17),height:moderateScale(17),backgroundColor:"#49D65B",borderRadius:moderateScale(15),position:"absolute",bottom:verticalScale(5),right:horizontalScale(-3),zIndex:999}}/>
-
+        <View
+          style={{
+            width: moderateScale(17),
+            height: moderateScale(17),
+            backgroundColor: "#49D65B",
+            borderRadius: moderateScale(15),
+            position: "absolute",
+            bottom: verticalScale(5),
+            right: horizontalScale(-3),
+            zIndex: 999,
+          }}
+        />
 
         <View
           style={{
@@ -60,7 +68,7 @@ const FrinedContainer = ({ navigation, item }: any) => {
             width: moderateScale(53),
             // zIndex: 999,
             borderRadius: horizontalScale(30),
-            alignItems:"center",
+            alignItems: "center",
             // justifyContent:"center"
             // paddingHorizontal:moderateScale(20)
           }}
@@ -73,31 +81,25 @@ const FrinedContainer = ({ navigation, item }: any) => {
             text={item?.friend}
           />
         </View>
-
       </View>
-    
 
-        <View style={{gap:verticalScale(10),marginTop:verticalScale(-5)}}>
+      <View style={{ gap: verticalScale(10), marginTop: verticalScale(-5) }}>
         <CustomText
-            size={17}
-            fontFam={fonts.regular}
-            fontWeight="500"
-            color={colors.gray}
-            text={item?.name}
-          />
-           <CustomText
-            size={15}
-            fontFam={fonts.regular}
-            fontWeight="500"
-            color={colors.gray}
-            text={item?.des}
-          />
-
-
-
-        </View>
-     
-    </View>
+          size={17}
+          fontFam={fonts.regular}
+          fontWeight="500"
+          color={colors.gray}
+          text={item?.name}
+        />
+        <CustomText
+          size={15}
+          fontFam={fonts.regular}
+          fontWeight="500"
+          color={colors.gray}
+          text={item?.des}
+        />
+      </View>
+    </TouchableOpacity>
   );
 };
 export default FrinedContainer;

@@ -593,6 +593,7 @@ const LeaderBoard = ({ navigation }: any) => {
       </View>
       {isCountryDropDown && (
         <CountryDropDown
+        setIsCountryDropDown={setIsCountryDropDown}
           selectedCountry={selectedCountry}
           setSelectedCountry={setSelectedCountry}
         />

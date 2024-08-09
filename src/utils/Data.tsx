@@ -101,6 +101,36 @@ export const onlineFriends = [
   },
 ];
 
+export const rankingData=[
+  {name:"Roosevelt HS",sat:"SAT at",id:"#2",image:images.roosevelt},
+  {name:"Missouri",sat:"SAT in",id:"#52",image:images.map2},
+
+]
+export const BadgesData=[
+  {image:images.uniqueApolloBadge},
+  {image:images.raeCannonBadge},
+  {image:images.uncommanBadge1},
+
+
+]
+export const friendData=[
+  {image:images.user10,isOnline:true},
+  {image:images.user12},
+  {image:images.user13,isOnline:true},
+  {image:images.user14},
+  {image:images.user15},
+  {image:images.user16},
+]
+export const userHistoryData=[
+  { userProfile:images.user10,gole:"3-2",user1Image:images.user11,points:"36",win:true,user1Online:true},
+  { userProfile:images.user12,gole:"1-3",user1Image:images.user13,points:"-40",win:false,user1Online:true},
+  { userProfile:images.user14,gole:"3-0",user1Image:images.user15,points:"+20",win:true,user1Online:false},
+  { userProfile:images.user16,gole:"0-3",user1Image:images.user17,points:"-16",win:false,user1Online:false},
+
+
+
+]
+
 export const groupParties = [
   {
     image: images.user3,

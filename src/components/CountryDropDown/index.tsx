@@ -6,16 +6,15 @@ import CustomText from "../CustomText";
 import { colors } from "../../utils/colors";
 import { isiPad } from "../../utils/CommonFun";
 
-const CountryDropDown = ({ selectedCountry, setSelectedCountry }: any) => {
-    console.log("selectedCountry",selectedCountry)
+const CountryDropDown = ({ selectedCountry, setSelectedCountry ,top,right,setIsCountryDropDown}: any) => {
   return (
     <View
       style={{
         position: "absolute",
         width: moderateScale(320),
         maxHeight: verticalScale(300),
-        top: verticalScale(isiPad ? 75 : 110),
-        right: moderateScale(40),
+        top:top|| verticalScale(isiPad ? 75 : 110),
+        right:right|| moderateScale(40),
         borderWidth: 1,
         borderColor: "#EEEFF2",
         backgroundColor: colors.white,
@@ -29,7 +28,12 @@ const CountryDropDown = ({ selectedCountry, setSelectedCountry }: any) => {
             <TouchableOpacity
             key={index}
             activeOpacity={0.5}
-            onPress={()=>setSelectedCountry(item)}
+            onPress={()=>
+              {
+                setSelectedCountry(item)
+                setIsCountryDropDown(false)
+              }
+              }
               style={{
                 ...appStyles.row,
                 justifyContent: "space-between",
@@ -62,8 +66,13 @@ const CountryDropDown = ({ selectedCountry, setSelectedCountry }: any) => {
 
               <TouchableOpacity
               activeOpacity={0.5}
-              onPress={()=>setSelectedCountry(item)}
-                style={{
+              onPress={()=>
+                {
+                  setSelectedCountry(item)
+                  setIsCountryDropDown(false)
+                }
+                }
+                                style={{
                   width: moderateScale(25),
                   height: moderateScale(25),
                   borderRadius: moderateScale(20),

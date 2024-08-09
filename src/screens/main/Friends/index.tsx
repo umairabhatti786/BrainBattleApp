@@ -126,7 +126,9 @@ const Friends = ({ navigation }: any) => {
                 color={colors.gray}
               />
               {onlineFriends.map((item, index) => {
-                return <FrinedContainer key={index} item={item} />;
+                return <FrinedContainer 
+                onPress={()=>navigation.navigate("Profile")}
+                key={index} item={item} />;
               })}
 
               <CustomText
