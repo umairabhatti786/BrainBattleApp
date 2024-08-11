@@ -181,7 +181,7 @@ const Profile = ({ navigation }: any) => {
             />
             <Image
               style={{ width: moderateScale(35), height: moderateScale(35) }}
-              source={images.qrcode}
+              source={images.battle}
             />
             <TouchableOpacity 
             activeOpacity={0.5}
@@ -458,6 +458,7 @@ const Profile = ({ navigation }: any) => {
               paddingHorizontal={moderateScale(15)}
               text="See collection"
               borderWidth={1.5}
+              onPress={()=>navigation.navigate("ChestRewards")}
               
               borderColor={colors.black}
               textColor={colors.black}

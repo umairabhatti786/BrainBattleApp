@@ -9,6 +9,7 @@ import Settings from "../screens/main/Settings";
 import Preferences from "../screens/main/Preferences";
 import EditProfile from "../screens/main/EditProfile";
 import Membership from "../screens/main/Membership";
+import ChestRewards from "../screens/main/ChestRewards";
 
 const RootNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -22,6 +23,8 @@ const RootNavigator = () => {
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="Preferences" component={Preferences} />
         <Stack.Screen name="Membership" component={Membership} />
+        <Stack.Screen name="ChestRewards" component={ChestRewards} />
+
 
 
 

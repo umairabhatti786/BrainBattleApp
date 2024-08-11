@@ -1,17 +1,11 @@
 import {
-  FlatList,
-  Platform,
   StyleSheet,
   TouchableOpacity,
   View,
   Image,
   ScrollView,
 } from "react-native";
-import {
-  horizontalScale,
-  moderateScale,
-  verticalScale,
-} from "../../../utils/Mertics";
+import { moderateScale, verticalScale } from "../../../utils/Mertics";
 import { colors } from "../../../utils/colors";
 import CustomText from "../../../components/CustomText";
 import { fonts } from "../../../utils/fonts";
@@ -19,8 +13,8 @@ import { useState } from "react";
 import { isiPad } from "../../../utils/CommonFun";
 import { images } from "../../../assets";
 import { SafeAreaView } from "react-native-safe-area-context";
-import ToggleSwitch from "toggle-switch-react-native";
 import { appStyles } from "../../../utils/appStyles";
+import CustomButton from "../../../components/CustomButton";
 
 const Membership = ({ navigation }: any) => {
   const [ProPlainsData, setProPlainsData] = useState([
@@ -33,6 +27,12 @@ const Membership = ({ navigation }: any) => {
       icon: images.soon,
       isCommingSoon: "Coming Soon",
     },
+  ]);
+  const [FreePlainsData, setFreePlainsData] = useState([
+    { txt: "Unlimited Public Game Entry", icon: images.tick },
+    { txt: "Play, Rewards, Leaderboard Features ", icon: images.tick },
+    { txt: "Create Private Matches With Friends", icon: images.redCross },
+    { txt: "In-Depth Game Review", icon: images.redCross },
   ]);
 
   const Header = () => {
@@ -54,22 +54,6 @@ const Membership = ({ navigation }: any) => {
             resizeMode="contain"
           />
         </TouchableOpacity>
-        <View style={{ padding: moderateScale(20), gap: verticalScale(3) }}>
-          <CustomText
-            fontFam={fonts.medium}
-            fontWeight="600"
-            label="App"
-            size={18}
-            color={colors.bluelight}
-          />
-          <CustomText
-            fontFam={fonts.bold}
-            fontWeight="700"
-            label="Preference"
-            size={22}
-            color={colors.black}
-          />
-        </View>
       </View>
     );
   };
@@ -90,7 +74,7 @@ const Membership = ({ navigation }: any) => {
           style={{
             paddingTop: verticalScale(10),
             paddingHorizontal: moderateScale(20),
-            gap: verticalScale(20),
+            gap: verticalScale(40),
           }}
         >
           <Header />
@@ -150,32 +134,30 @@ const Membership = ({ navigation }: any) => {
                       resizeMode="contain"
                     />
 
-                    <View style={{gap:verticalScale(10),alignItems:"center"}}>
-                    <CustomText
-                      fontFam={fonts.medium}
-                      fontWeight="600"
-                      text={item.txt}
-                      style={{ marginLeft: moderateScale(isiPad ? 20 : 15) }}
-                      size={18}
-                      color={"#DEDEDE"}
-                    />
-                    {
-                        item?.isCommingSoon&&(
-                            <CustomText
-                            fontFam={fonts.medium}
-                            fontWeight="600"
-                            text={item.isCommingSoon}
-                            style={{ marginLeft: moderateScale(isiPad ? 20 : 15) }}
-                            size={15}
-                            color={"#B0B0B0"}
-                          />
-
-                        )
-                    }
-
+                    <View
+                      style={{ gap: verticalScale(10), alignItems: "center" }}
+                    >
+                      <CustomText
+                        fontFam={fonts.medium}
+                        fontWeight="600"
+                        text={item.txt}
+                        style={{ marginLeft: moderateScale(isiPad ? 20 : 15) }}
+                        size={18}
+                        color={"#DEDEDE"}
+                      />
+                      {item?.isCommingSoon && (
+                        <CustomText
+                          fontFam={fonts.medium}
+                          fontWeight="600"
+                          text={item.isCommingSoon}
+                          style={{
+                            marginLeft: moderateScale(isiPad ? 20 : 15),
+                          }}
+                          size={15}
+                          color={"#B0B0B0"}
+                        />
+                      )}
                     </View>
-
-                 
                   </View>
                   <View
                     style={{
@@ -188,6 +170,32 @@ const Membership = ({ navigation }: any) => {
               );
             })}
 
+            <View
+              style={{ ...appStyles.rowjustify, padding: moderateScale(20) }}
+            >
+              <CustomButton
+                bgColor={colors.black}
+                fontFam={fonts.bold}
+                fontWeight="600"
+                paddingHorizontal={50}
+                borderRadius={18}
+                size={20}
+                height={45}
+                text="Unlock"
+                borderWidth={1}
+                borderColor={colors.white}
+                textColor={colors.white}
+              />
+
+              <CustomText
+                fontFam={fonts.medium}
+                fontWeight="600"
+                label={"$ 12 / Month"}
+                size={22}
+                color={"#A48A00"}
+              />
+            </View>
+
             {/* <Image
                       style={{
                         width: moderateScale(32),
@@ -195,6 +203,125 @@ const Membership = ({ navigation }: any) => {
                       }}
                       source={item.icon}
                     /> */}
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            activeOpacity={0.6}
+            style={{
+              ...styles.boxContainer,
+              backgroundColor: colors.white,
+            }}
+          >
+            <View
+              style={{
+                paddingVertical: verticalScale(10),
+                flexDirection: "row",
+                alignItems: "center",
+                gap: moderateScale(10),
+                alignSelf: "center",
+              }}
+            >
+              <CustomText
+                fontFam={fonts.medium}
+                fontWeight="600"
+                label={"Free"}
+                size={25}
+                color={"#959494"}
+              />
+              <Image
+                style={{
+                  width: moderateScale(32),
+                  height: moderateScale(32),
+                }}
+                source={images.battle}
+              />
+            </View>
+
+            <View
+              style={{
+                height: verticalScale(0.5),
+                width: "100%",
+                backgroundColor: "#7B7B7B",
+              }}
+            />
+
+            {FreePlainsData.map((item, index) => {
+              return (
+                <View>
+                  <View
+                    style={{ ...appStyles.row, padding: moderateScale(20) }}
+                  >
+                    <Image
+                      style={{
+                        width: moderateScale(item.isCommingSoon ? 45 : 32),
+                        height: moderateScale(item.isCommingSoon ? 45 : 32),
+                      }}
+                      source={item.icon}
+                      resizeMode="contain"
+                    />
+
+                    <View
+                      style={{ gap: verticalScale(10), alignItems: "center" }}
+                    >
+                      <CustomText
+                        fontFam={fonts.medium}
+                        fontWeight="600"
+                        text={item.txt}
+                        style={{ marginLeft: moderateScale(isiPad ? 20 : 15) }}
+                        size={18}
+                        color={"#747B76"}
+                      />
+                      {item?.isCommingSoon && (
+                        <CustomText
+                          fontFam={fonts.medium}
+                          fontWeight="600"
+                          text={item.isCommingSoon}
+                          style={{
+                            marginLeft: moderateScale(isiPad ? 20 : 15),
+                          }}
+                          size={15}
+                          color={"#B0B0B0"}
+                        />
+                      )}
+                    </View>
+                  </View>
+                  <View
+                    style={{
+                      height: verticalScale(0.5),
+                      width: "100%",
+                      backgroundColor: "#7B7B7B",
+                    }}
+                  />
+                </View>
+              );
+            })}
+
+            <View
+              style={{ ...appStyles.rowjustify, padding: moderateScale(20) }}
+            >
+              <CustomButton
+                bgColor={colors.white}
+                fontFam={fonts.bold}
+                fontWeight="600"
+                paddingHorizontal={40}
+                borderRadius={18}
+                size={20}
+                height={40}
+                style={{ ...appStyles.elevation }}
+                text="Continue"
+                borderWidth={1}
+                borderColor={colors.white}
+                textColor={colors.black}
+              />
+
+              <CustomText
+                fontFam={fonts.medium}
+                fontWeight="600"
+                label={"$ 0 / Month"}
+                size={22}
+                color={"#A48A00"}
+              />
+            </View>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -211,7 +338,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 2, height: isiPad ? 4 : 2 },
     shadowOpacity: 0.5,
     shadowRadius: 2,
-    //   gap: verticalScale(20),
-    borderRadius: moderateScale(10),
+    borderRadius: moderateScale(20),
   },
 });

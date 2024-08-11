@@ -124,11 +124,13 @@ const Preferences = ({ navigation }: any) => {
                     width: moderateScale(17),
                     height: moderateScale(17),
                     borderRadius: 9999,
+                    marginLeft: isiPad ? moderateScale(15) : moderateScale(5),
                   }}
                   thumbOffStyle={{
                     width: moderateScale(17),
                     height: moderateScale(17),
                     borderRadius: 9999,
+                    marginLeft: moderateScale(5),
                   }}
                   trackOffStyle={{
                     width: moderateScale(46),
@@ -160,7 +162,6 @@ const styles = StyleSheet.create({
   boxContainer: {
     width: "100%",
     padding: moderateScale(20),
-    elevation: 5,
     shadowColor: colors.black + "50",
     shadowOffset: { width: 2, height: isiPad ? 4 : 2 },
     shadowOpacity: 0.5,
@@ -171,5 +172,4 @@ const styles = StyleSheet.create({
     gap: verticalScale(20),
     borderRadius: moderateScale(15),
   },
- 
 });

@@ -8,7 +8,6 @@ import {
   ScrollView,
 } from "react-native";
 import {
-  horizontalScale,
   moderateScale,
   verticalScale,
 } from "../../../utils/Mertics";
@@ -16,7 +15,6 @@ import { appStyles } from "../../../utils/appStyles";
 import { colors } from "../../../utils/colors";
 import CustomText from "../../../components/CustomText";
 import { fonts } from "../../../utils/fonts";
-import { useState } from "react";
 import { isiPad } from "../../../utils/CommonFun";
 import { images } from "../../../assets";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -100,7 +98,7 @@ const Settings = ({ navigation }: any) => {
               backgroundColor: "#C4C4C430",
             }}
           >
-            <View style={{ ...appStyles.row, gap: moderateScale(10) }}>
+            <View style={{ ...appStyles.row, gap: moderateScale(10),backgroundColor:"#" }}>
               <CustomText
                 fontFam={fonts.bold}
                 fontWeight="700"
@@ -198,7 +196,7 @@ const styles = StyleSheet.create({
   boxContainer: {
     width: "100%",
     padding: moderateScale(20),
-    elevation: 5,
+    // elevation: 5,
     shadowColor: colors.black + "50",
     shadowOffset: { width: 2, height: isiPad ? 4 : 2 },
     shadowOpacity: 0.5,
